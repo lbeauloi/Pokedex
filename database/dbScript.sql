@@ -6,7 +6,7 @@
 -- To reset the sample schema, replace everything with
 -- two dots ('..' - without quotes).
 
-CREATE DATABASE pokedex CHARACTER SET 'utf8mb4_0900_ai_ci';
+CREATE DATABASE pokedex CHARACTER SET 'utf8';
 
 USE pokedex;
 
