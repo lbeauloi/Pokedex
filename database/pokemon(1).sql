@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 16 nov. 2023 à 11:00
+-- Généré le : jeu. 16 nov. 2023 à 11:12
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `pokemon` (
   `picture` varchar(255) NOT NULL,
   PRIMARY KEY (`pokemonID`),
   KEY `idx_pokemon_name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `pokemon`
@@ -53,7 +53,13 @@ INSERT INTO `pokemon` (`pokemonID`, `name`, `number`, `healthPoints`, `attackDam
 (3, 'Venusaur', '#0003', 80, 82, 83, 100, 100, 80, './assets/img/venusaur.png'),
 (4, 'Charmander', '#0004', 39, 52, 43, 60, 50, 65, './assets.img/charmander.png'),
 (5, 'Charmeleon', '#0005', 58, 64, 58, 80, 65, 80, './assets/img/charmeleon'),
-(6, 'Charizard', '#0006', 78, 84, 78, 109, 85, 100, './assets/img/charizard');
+(6, 'Charizard', '#0006', 78, 84, 78, 109, 85, 100, './assets/img/charizard'),
+(7, 'Squirtle', '#0007', 44, 48, 65, 50, 64, 43, './assets/img/squirtle.png'),
+(8, 'Wartortle', '#0008', 59, 63, 80, 65, 80, 58, './assets/img/wartortle.png'),
+(9, 'Blastoise', '#0009', 79, 83, 100, 85, 105, 78, './assets/img/blastoise.png'),
+(10, 'Caterpie', '#0010', 45, 30, 35, 20, 20, 45, './assets/img/caterpie.png'),
+(11, 'Metapod', '#0011', 50, 20, 55, 25, 25, 30, './assets/img/caterpie.png'),
+(12, 'Butterfree', '#0012', 60, 45, 50, 90, 80, 70, './assets/img/butterfree.png');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
