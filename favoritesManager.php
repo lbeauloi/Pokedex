@@ -5,7 +5,6 @@ require_once('connect.php');
 global $bdd;
 
 session_start();
-//$_SESSION['username'] = 'user1';
 
 if (!checkLogin()) {
     header('location: login.php');
@@ -85,12 +84,3 @@ function getUserId($username): int
     return throw new Error('Invalid login');
 }
 
-
-
-
-
-// not connected -_> alert and button to redirect
-// connected : need a pokemonId here
-//function add as favorites
-//OR
-// function remove as favorites
