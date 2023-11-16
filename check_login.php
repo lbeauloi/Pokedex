@@ -30,5 +30,8 @@ if ($data) {
     header('Location: index.php');
     exit();
 } 
+else {
+    header('Location: login.php');
+}
 
 ?>
