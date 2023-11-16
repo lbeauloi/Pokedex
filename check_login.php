@@ -15,7 +15,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $password = sha1($_POST['password']);
 
     $bdd = connectDB();
-    $req = $bdd->prepare('SELECT * FROM user WHERE username = :username AND password = :password');
+    $req = $bdd->prepare('SELECT * FROM users WHERE username = :username AND password = :password');
     $req->execute(array(
         'username' => $username,
         'password' => $password
