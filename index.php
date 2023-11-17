@@ -1,13 +1,17 @@
 <?php
-require 'connect.php';
+session_start();
+//For test purpose
+//$_SESSION['username']="user1";
+require_once('connect.php');
+require_once('helpers.php');
 $bdd = connectDB();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>index</title>
-    <link rel="stylesheet" href="./assets/css/style.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./assets/css/style.min.css" media="screen" title="no title">
   </head>
   <body>
     <h1>Liste des pokemons</h1>
@@ -24,6 +28,7 @@ $bdd = connectDB();
 
     foreach ($bdd->query($query) as $row) {
         // Pour chaque enregistrement, afficher une entrée de liste
+        $checked = evaluateFavorite($row['pokemonID']);
         echo
         '<div>
             <p class="number">' . $row["number"] . '</p>
@@ -32,7 +37,8 @@ $bdd = connectDB();
             <img src="' . $row["picture"] . '" alt="image du pokemon">
                 <div>
                      <form action="favoritesManager.php" method="GET">
-                     <input onclick="this.form.submit()" type="checkbox" id="heart' . $row['pokemonID'] . '" name="pokemonId" value="' . $row['pokemonID'] . '"/>
+                     <input type="hidden" name="pokemonId" value="' . $row['pokemonID'] . '"/>
+                     <input onChange="submit()" type="checkbox" id="heart' . $row['pokemonID'] . '" '.$checked.'/>
                      <label for="heart' . $row['pokemonID'] . '"></label>
                      </form>
 
@@ -45,6 +51,21 @@ $bdd = connectDB();
     ?>
   </body>
 </html>
+<?php
+
+function evaluateFavorite($pokemonId):string{
+    if(!checkLogin())
+        return "";
+    $userId=-1;
+    try{
+        $userId = getUserId($_SESSION['username']);
+    }
+    catch(Exception $e){
+        $e->getMessage();
+    }
+
+    return isFavorite($pokemonId,$userId)? "checked":"";
+}
 
 
 

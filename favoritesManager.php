@@ -13,24 +13,11 @@ if (!checkLogin()) {
 
 $username = $_SESSION['username'];
 $pokemonId = $_GET['pokemonId'] ?? -1;
-checkFavorite($pokemonId,$username);
-function checkFavorite($pokemonId, $username)
-{
-    global $bdd;
+
     try{
         $userID = getUserId($username);
-        $query = "SELECT favoriteID FROM pokedex.favorites WHERE userID = '$userID' AND pokemonId='$pokemonId';";
-        $res = $bdd->query($query);
-
-        switch ($res->rowCount()) {
-            case 0:
-                $resFavorite = addFavorite($userID, $pokemonId);
-                break;
-            case 1:
-            default :
-                $resFavorite = removeFavorite($userID, $pokemonId);
-                break;
-        }
+        $resFavorite = isFavorite($pokemonId,$userID)?removeFavorite($userID, $pokemonId):addFavorite($userID, $pokemonId);
+        //if ok, redirect to loing page
     }
 
     catch(Exception $e) {
@@ -40,9 +27,9 @@ function checkFavorite($pokemonId, $username)
     echo $resFavorite;
     echo'<button><a href="index.php">Home</a></button>';
 
-}
 
-function addFavorite($userID, $pokemonId)
+
+function addFavorite($userID, $pokemonId):string
 {
     global $bdd;
     $pokemon = array();
@@ -59,7 +46,7 @@ function addFavorite($userID, $pokemonId)
         (gettype($res) === 'string'? $res : '<p> Exception has occurred, ' . $pokemon['name'] . ' not added to your favorites.</p>');
 }
 
-function removeFavorite($userID, $pokemonId)
+function removeFavorite($userID, $pokemonId) : string
 {
     global $bdd;
     try{
@@ -91,17 +78,5 @@ function getPokemonById($pokemonId) : array
 return throw new Exception('Invalid pokemonId');
 }
 
-function getUserId($username): int
-{
-    global $bdd;
-    $query = "SELECT UserID FROM pokedex.users WHERE username = '$username'";
-    $res = $bdd->query($query);
 
-    if ($res->rowCount() === 1) {
-        $row = $res->fetch();
-        return $row['UserID'];
-    }
-
-    return throw new Exception('Invalid login');
-}
 
