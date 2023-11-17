@@ -4,16 +4,9 @@ session_start();
 //$_SESSION['username']="user1";
 require_once('connect.php');
 require_once('helpers.php');
+require_once('header.php');
 $bdd = connectDB();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>index</title>
-    <link rel="stylesheet" href="./assets/css/style.min.css" media="screen" title="no title">
-  </head>
-  <body>
     <h1>Liste des pokemons</h1>
 
     <!-- Utilisez une liste pour afficher les pokemons -->
@@ -30,7 +23,7 @@ $bdd = connectDB();
         // Pour chaque enregistrement, afficher une entrée de liste
         $checked = evaluateFavorite($row['pokemonID']);
         echo
-        '<div>
+        '<div class="container">
             <p class="number">' . $row["number"] . '</p>
             <p class="name"><a href="detail.php?id=' . $row["pokemonID"] . '">' . $row["name"] . '</a></p>
             <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
@@ -49,6 +42,7 @@ $bdd = connectDB();
     // Fermeture de la connexion à la base de données
     $bdd = null;
     ?>
+  </main>
   </body>
 </html>
 <?php
