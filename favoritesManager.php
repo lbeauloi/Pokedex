@@ -59,7 +59,7 @@ function removeFavorite($userID, $pokemonId) : string
     }
 
     return ($res === 1) ? '<p> Pokemon '.$pokemon['name'].' is correctly removed from your favorites.</p>' :
-        (typeof($res) === 'string'? $res : '<p> Exception has occurred, ' . $pokemon['name'] . ' not removed from your favorites.</p>');
+        (gettype($res) === 'string'? $res : '<p> Exception has occurred, ' . $pokemon['name'] . ' not removed from your favorites.</p>');
 }
 
 function getPokemonById($pokemonId) : array
