@@ -143,7 +143,7 @@ main {
   right: 45px;
 }
 
-* {
+html {
   font-family: "Poppins", sans-serif;
 }
 
@@ -174,4 +174,26 @@ nav a {
 nav a:hover {
   background-color: #ddd;
   color: black;
+}
+
+html {
+  background-color: #F3F4F6;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.containerDetail {
+  display: flex;
+  justify-content: center;
+}
+
+.imagePhoto {
+  position: relative;
+}
+.imagePhoto img {
+  width: 200px;
+}
+.imagePhoto .numberDetai {
+  position: absolute;
+  font-size: 70px;
 }/*# sourceMappingURL=style.css.map */

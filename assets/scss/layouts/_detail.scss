@@ -1,0 +1,21 @@
+html{
+    background-color: #F3F4F6;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+.containerDetail{
+    display:flex;
+    justify-content: center;
+}
+
+.imagePhoto{
+    position: relative;
+    img{
+        width: 200px;
+    }
+    .numberDetai{
+        position: absolute;
+        font-size: 70px;
+    }
+}
+

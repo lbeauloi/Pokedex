@@ -7,16 +7,8 @@ require_once('helpers.php');
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.min.css">
         <title>Details</title>
-        <style>
-            .container{
-                display:flex;
-                justify-content: space-between;
-                max-width: 70%;
-                margin: auto;
-            }
-  
-        </style>
     </head>
     <body>
     <?php
@@ -51,10 +43,10 @@ if (isset($_GET['id'])) {
     // Affichez les détails du Pokémon
     
         echo '
-            <div class=container>
+            <div class=containerDetail>
                 <div class="details">
-                    <p class="name">' . $row["name"] . '</p>
-                    <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
+                    <p class="nameDetail">' . $row["name"] . '</p>
+                    <div class="typesDetail"><p class="typesDetail">' . str_replace(",", '</p><p class="typesDetail">', $row["typeNames"]) . '</p></div>
                     <p>HP: ' . $row["healthPoints"] . '</p>
                     <p>Attack Damages: ' . $row["attackDamages"] . '</p>
                     <p>Defense Points: ' . $row["defensePoints"] . '</p>
@@ -64,7 +56,7 @@ if (isset($_GET['id'])) {
                 </div>
             
                 <div class="imagePhoto">
-                    <p class="number">' . $row["number"] . '</p>
+                    <p class="numberDetail">' . $row["number"] . '</p>
                     <img src="' . $row["picture"] . '" alt="image du pokemon">
                 </div>
             </div>';
