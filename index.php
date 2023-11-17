@@ -1,5 +1,6 @@
 <?php
 require 'connect.php';
+require 'header.php';
 $bdd = connectDB();
 ?>
 <!DOCTYPE html>
@@ -18,8 +19,8 @@ $bdd = connectDB();
     // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
     $query = 'SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
               FROM pokemon
-              JOIN pokemonType ON pokemon.pokemonID = pokemonType.pokemonID
-              JOIN types ON pokemonType.typeID = types.typeID
+              JOIN pokemontype ON pokemon.pokemonID = pokemontype.pokemonID
+              JOIN types ON pokemontype.typeID = types.typeID
               GROUP BY pokemon.pokemonID';
 
     foreach ($bdd->query($query) as $row) {
