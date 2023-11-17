@@ -15,9 +15,10 @@ global $bdd;
 <body>
     <?php
     require_once('header.php');
+
     ?>
     <main>
-        <form action="login.php" method="post">
+        <form action="check_login.php" method="post">
             <h1>My Account</h1>
             <div>
                 <label for="email">Email*</label>
