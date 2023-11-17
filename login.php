@@ -1,5 +1,6 @@
 <?php
 require('./header.php');
+require('./sanitize.php');
 ?>
 
 <main>
@@ -19,3 +20,11 @@ require('./header.php');
 </body>
 
 </html>
+
+<?php
+// Vérifie que le hachage fourni correspond bien au mot de passe fourni.
+// if (password_verify($password, $hash) && $username == ) {
+//     header('Location: ');
+// } else {
+//     echo 'Le mot de passe est invalide.';
+// }

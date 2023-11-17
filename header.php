@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="./assets/scss/style.css">
 </head>
-<header>
-    <img src="./assets/img/pokemon-logo.png">
-</header>
+
+<body>
+    <header>
+        <img src="./assets/img/pokemon-logo.png">
+    </header>
