@@ -18,8 +18,8 @@ $bdd = connectDB();
     // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
     $query = 'SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
               FROM pokemon
-              JOIN pokemonType ON pokemon.pokemonID = pokemonType.pokemonID
-              JOIN types ON pokemonType.typeID = types.typeID
+              JOIN pokemontype ON pokemon.pokemonID = pokemontype.pokemonID
+              JOIN types ON pokemontype.typeID = types.typeID
               GROUP BY pokemon.pokemonID';
 
     foreach ($bdd->query($query) as $row) {
@@ -30,6 +30,10 @@ $bdd = connectDB();
             <p class="name"><a href="detail.php?id=' . $row["pokemonID"] . '">' . $row["name"] . '</a></p>
             <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
             <img src="' . $row["picture"] . '" alt="image du pokemon">
+                <form action="favoritesManager.php" method="GET">
+        <input type="checkbox" id="heart" name="pokemon" value="'.$row['pokemonID'].'"/>
+        <label for="heart"></label>
+    </form>
         </div>';
     }
 
