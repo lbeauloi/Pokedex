@@ -1,5 +1,6 @@
+<link rel="stylesheet" href="assets/css/style.min.css">
 <header>
-    <img src="./assets/img/pokemon-logo.png">
+    <img class="logoHome" src="./assets/img/pokemon-logo.png">
 
     <nav>
         <ul>

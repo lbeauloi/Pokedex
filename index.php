@@ -7,30 +7,33 @@ require_once('helpers.php');
 global $bdd;
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.min.css">
-    <title>Home</title>
-</head>
-
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.min.css">
+        <title>Home</title>
+    </head>
+    <body>
     <?php
     require_once('header.php');
     ?>
+    <section class="titre"><h1>Liste des pokemons</h1></section>
     <main>
-        <h1>Liste des pokemons</h1>
-        <?php
-        displayPokemons();
-        // Fermeture de la connexion à la base de données
-        $bdd = null;
-        ?>
-    </main>
-</body>
 
+<?php
+displayPokemons();
+// Utilisez une liste pour afficher les pokemons
+    // Sélectionnez le nom, le numéro et l'image de la table pokemon
+    // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
+
+    // Fermeture de la connexion à la base de données
+    $bdd = null;
+    ?>
+  </main>
+  </body>
 </html>
 <?php
 
@@ -50,12 +53,14 @@ function displayPokemons()
         // Pour chaque enregistrement, afficher une entrée de liste
         $checked = evaluateFavorite($row['pokemonID']);
         echo
-        '<div class="container">
-            <p class="number">' . $row["number"] . '</p>
-            <p class="name"><a href="detail.php?id=' . $row["pokemonID"] . '">' . $row["name"] . '</a></p>
-            <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
-            <img src="' . $row["picture"] . '" alt="image du pokemon">
-                <div>
+            '<div class="container">
+                <img class="imagePokemon" src="' . $row["picture"] . '" alt="image du pokemon">
+                <p class="number">' . $row["number"] . '</p>
+                <p class="name"><a class="nameLink" href="detail.php?id=' . $row["pokemonID"] . '">' . $row["name"] . '</a></p>
+                <div class="types"><p class="types">' . str_replace(",", '</p> <p class="types">', $row["typeNames"])  .  '</p></div>
+                
+
+                <div class="heart">
                      <form action="favoritesManager.php" method="GET">
                      <input type="hidden" name="pokemonId" value="' . $row['pokemonID'] . '"/>
                      <input onChange="submit()" type="checkbox" id="heart' . $row['pokemonID'] . '" ' . $checked . '/>
@@ -65,17 +70,24 @@ function displayPokemons()
                  </div>
         </div>';
     }
+
 }
-function evaluateFavorite($pokemonId): string
-{
-    if (!checkLogin())
+function evaluateFavorite($pokemonId):string{
+    if(!checkLogin())
         return "";
-    $userId = -1;
-    try {
+    $userId=-1;
+    try{
         $userId = getUserId($_SESSION['username']);
-    } catch (Exception $e) {
+    }
+    catch(Exception $e){
         $e->getMessage();
     }
 
-    return isFavorite($pokemonId, $userId) ? "checked" : "";
+    return isFavorite($pokemonId,$userId)? "checked":"";
 }
+
+
+
+
+
+
