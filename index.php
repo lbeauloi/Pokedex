@@ -24,10 +24,6 @@ global $bdd;
     <h1>Liste des pokemons</h1>
 <?php
 displayPokemons();
-// Utilisez une liste pour afficher les pokemons
-    // Sélectionnez le nom, le numéro et l'image de la table pokemon
-    // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
-
     // Fermeture de la connexion à la base de données
     $bdd = null;
     ?>
@@ -37,6 +33,9 @@ displayPokemons();
 <?php
 
 function displayPokemons(){
+    // Utilisez une liste pour afficher les pokemons
+    // Sélectionnez le nom, le numéro et l'image de la table pokemon
+    // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
    global $bdd;
     $query = 'SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
               FROM pokemon
