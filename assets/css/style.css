@@ -3,6 +3,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(_index.scss);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -82,4 +83,4 @@ input[type=checkbox]:checked + label:after {
   font-size: 25px;
   position: absolute;
   transition: 0.5s ease;
-}
+}/*# sourceMappingURL=style.css.map */

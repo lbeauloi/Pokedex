@@ -1,3 +1,25 @@
+<html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Détails</title>
+        <style>
+            .container{
+                display:flex;
+                justify-content: space-between;
+                max-width: 70%;
+                margin: auto;
+            }
+  
+        </style>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+</html>
 <?php
 require 'connect.php';
 require 'header.php';
@@ -26,32 +48,28 @@ if (isset($_GET['id'])) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Affichez les détails du Pokémon
-    if ($row) {
-        echo '<div class="details">
-                <p class="name">' . $row["name"] . '</p>
-                <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
-                <p>HP: ' . $row["healthPoints"] . '</p>
-                <p>Attack Damages: ' . $row["attackDamages"] . '</p>
-                <p>Defense Points: ' . $row["defensePoints"] . '</p>
-                <p>Specific Defense: ' . $row["specificDefense"] . '</p>
-                <p>Specific Attack: ' . $row["specificAttack"] . '</p>
-                <p>Speed: ' . $row["speed"] . '</p>
-            </div>
+    
+        echo '
+            <div class=container>
+                <div class="details">
+                    <p class="name">' . $row["name"] . '</p>
+                    <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
+                    <p>HP: ' . $row["healthPoints"] . '</p>
+                    <p>Attack Damages: ' . $row["attackDamages"] . '</p>
+                    <p>Defense Points: ' . $row["defensePoints"] . '</p>
+                    <p>Specific Defense: ' . $row["specificDefense"] . '</p>
+                    <p>Specific Attack: ' . $row["specificAttack"] . '</p>
+                    <p>Speed: ' . $row["speed"] . '</p>
+                </div>
             
-            <div class="imagePhoto">
-                <p class="number">' . $row["number"] . '</p>
-                <img src="' . $row["picture"] . '" alt="image du pokemon">
+                <div class="imagePhoto">
+                    <p class="number">' . $row["number"] . '</p>
+                    <img src="' . $row["picture"] . '" alt="image du pokemon">
+                </div>
             </div>';
-    } else {
-        // Gérez le cas où aucun Pokémon n'est trouvé avec l'ID spécifié
-        echo 'Pokemon non trouvé';
-    }
-} else {
-    // Gérez le cas où l'ID n'est pas défini dans l'URL
-    echo 'ID non spécifié';
-}
+   
 
 // Fermeture de la connexion à la base de données
 $bdd = null;
+}
 ?>
-
