@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //crypter mot de passe avant de le stocker dans la db
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
-        $add = "INSERT INTO users (username, Password) VALUES ('$username', '$hash')";
+        $add = "INSERT INTO users (username, Password, roleID) VALUES ('$username', '$hash', 1)";
         $nb = $bdd->prepare($add);
         //eécuter la requête d'insertion
         $nb->execute();
