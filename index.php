@@ -7,7 +7,7 @@ $bdd = connectDB();
   <head>
     <meta charset="utf-8">
     <title>index</title>
-    <link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./assets/css/style.min.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <h1>Liste des pokemons</h1>
@@ -30,10 +30,13 @@ $bdd = connectDB();
             <p class="name"><a href="detail.php?id=' . $row["pokemonID"] . '">' . $row["name"] . '</a></p>
             <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
             <img src="' . $row["picture"] . '" alt="image du pokemon">
-                <form action="favoritesManager.php" method="GET">
-        <input type="checkbox" id="heart" name="pokemon" value="'.$row['pokemonID'].'"/>
-        <label for="heart"></label>
-    </form>
+                <div>
+                     <form action="favoritesManager.php" method="GET">
+                     <input onclick="this.form.submit()" type="checkbox" id="heart' . $row['pokemonID'] . '" name="pokemonId" value="' . $row['pokemonID'] . '"/>
+                     <label for="heart' . $row['pokemonID'] . '"></label>
+                     </form>
+
+                 </div>
         </div>';
     }
 

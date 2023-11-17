@@ -38,6 +38,7 @@ function checkFavorite($pokemonId, $username)
     }
 
     echo $resFavorite;
+    echo'<button><a href="index.php">Home</a></button>';
 
 }
 
@@ -54,7 +55,7 @@ function addFavorite($userID, $pokemonId)
         $res = $e->getMessage();
     }
 
-    return ($res === 1) ? '<p> Pokemon '.$pokemon['name'].' is correctly added to your favorites.</p>' :
+    return $res === 1 ? '<p> Pokemon '.$pokemon['name'].' is correctly added to your favorites.</p>' :
         (gettype($res) === 'string'? $res : '<p> Exception has occurred, ' . $pokemon['name'] . ' not added to your favorites.</p>');
 }
 
