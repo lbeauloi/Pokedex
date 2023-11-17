@@ -5,17 +5,27 @@ html{
 }
 .containerDetail{
     display:flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 80px;
+    .details{
+        background-color: white;
+        padding: 50px;
+    }
 }
 
 .imagePhoto{
     position: relative;
     img{
-        width: 200px;
+        width: 300px;
     }
-    .numberDetai{
+    .numberDetail{
         position: absolute;
-        font-size: 70px;
+        font-size: 150px;
+        z-index: -1;
+        top: 50px;
+        color: #E4E5EA;
+        font-weight: bold;
+
     }
 }
 
