@@ -5,7 +5,7 @@ require_once('connect.php');
 $bdd =connectDB();
 
 session_start();
-$_SESSION['username']="user1";
+//$_SESSION['username']="user1"; TESTING!!!!
 if (!checkLogin()) {
     header('location: login.php');
     exit();
