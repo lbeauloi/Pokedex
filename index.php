@@ -4,15 +4,40 @@ session_start();
 //$_SESSION['username']="user1";
 require_once('connect.php');
 require_once('helpers.php');
-require_once('header.php');
-$bdd = connectDB();
+global $bdd;
 ?>
-    <h1>Liste des pokemons</h1>
 
-    <!-- Utilisez une liste pour afficher les pokemons -->
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.min.css">
+        <title>Home</title>
+    </head>
+    <body>
     <?php
+    require_once('header.php');
+    ?>
+    <main>
+    <h1>Liste des pokemons</h1>
+<?php
+displayPokemons();
+// Utilisez une liste pour afficher les pokemons
     // Sélectionnez le nom, le numéro et l'image de la table pokemon
     // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
+
+    // Fermeture de la connexion à la base de données
+    $bdd = null;
+    ?>
+  </main>
+  </body>
+</html>
+<?php
+
+function displayPokemons(){
+   global $bdd;
     $query = 'SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
               FROM pokemon
               JOIN pokemontype ON pokemon.pokemonID = pokemontype.pokemonID
@@ -23,7 +48,7 @@ $bdd = connectDB();
         // Pour chaque enregistrement, afficher une entrée de liste
         $checked = evaluateFavorite($row['pokemonID']);
         echo
-        '<div class="container">
+            '<div class="container">
             <p class="number">' . $row["number"] . '</p>
             <p class="name"><a href="detail.php?id=' . $row["pokemonID"] . '">' . $row["name"] . '</a></p>
             <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
@@ -39,14 +64,7 @@ $bdd = connectDB();
         </div>';
     }
 
-    // Fermeture de la connexion à la base de données
-    $bdd = null;
-    ?>
-  </main>
-  </body>
-</html>
-<?php
-
+}
 function evaluateFavorite($pokemonId):string{
     if(!checkLogin())
         return "";

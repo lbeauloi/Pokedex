@@ -2,7 +2,7 @@
 //check if connected -->
 require_once('helpers.php');
 require_once('connect.php');
-global $bdd;
+$bdd =connectDB();
 
 session_start();
 $_SESSION['username']="user1";

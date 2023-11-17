@@ -1,10 +1,13 @@
-<html>
+<?php
+require_once('connect.php');
+require_once('helpers.php');
+?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Détails</title>
+        <title>Details</title>
         <style>
             .container{
                 display:flex;
@@ -16,15 +19,13 @@
         </style>
     </head>
     <body>
-        
+    <?php
+    require_once('header.php');
+    ?>
     </body>
     </html>
-</html>
 <?php
-require 'connect.php';
-require 'header.php';
-$bdd = connectDB();
-
+global $bdd;
 // Vérifiez si l'ID est défini dans l'URL
 if (isset($_GET['id'])) {
     // Utilisez la fonction htmlspecialchars pour éviter les attaques par injection SQL

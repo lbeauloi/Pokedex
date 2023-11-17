@@ -14,15 +14,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     $data = $req->fetch();
 
-}
+    if ($data) {
+        $_SESSION['username'] = $username;
+        header('Location: index.php');
+        exit();
+    }
 
-if ($data) {
-    $_SESSION['username'] = $username;
-    header('Location: index.php');
-    exit();
-} 
-else {
-    header('Location: login.php');
 }
+header('Location: login.php');
+exit();
 
 ?>
