@@ -11,6 +11,7 @@ global $bdd;
     <link rel="stylesheet" href="assets/css/style.min.css">
     <title>Login</title>
 </head>
+
 <body>
     <?php
     require_once('header.php');
@@ -20,8 +21,8 @@ global $bdd;
         <form action="check_login.php" method="post">
             <h1>My Account</h1>
             <div>
-                <label for="email">Email*</label>
-                <input type="email" name="email" id="email">
+                <label for="username">Email*</label>
+                <input type="username" name="username" id="username">
             </div>
             <div>
                 <label for="password">Password*</label>
@@ -32,4 +33,5 @@ global $bdd;
     </main>
 </body>
 <?php $bdd = null ?>
+
 </html>

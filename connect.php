@@ -19,3 +19,5 @@ function connectDB()
         die('Erreur : ' . $e->getMessage());
     }
 }
+
+
