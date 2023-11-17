@@ -64,7 +64,7 @@ input[type=checkbox] + label {
 }
 
 input[type=checkbox] + label:before {
-  content: "🩶";
+  content: "🤍";
   border: 1px solid transparent;
   border-radius: 3px;
   display: block;
