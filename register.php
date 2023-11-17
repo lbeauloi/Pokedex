@@ -19,9 +19,10 @@ require('./validate-sanitize/sanitize.php');
         </div>
 
         <button type="submit">New account</button>
-        <footer>Already a member? <a href="./login.php">Login here</a></footer>
+
     </form>
 </main>
+<footer>Already a member? <a href="./login.php">Login here</a></footer>
 </body>
 
 </html>
