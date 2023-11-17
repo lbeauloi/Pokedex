@@ -20,8 +20,9 @@ global $bdd;
     <?php
     require_once('header.php');
     ?>
+    <section class="titre"><h1>Liste des pokemons</h1></section>
     <main>
-    <h1>Liste des pokemons</h1>
+    
 <?php
 displayPokemons();
 // Utilisez une liste pour afficher les pokemons
@@ -49,19 +50,20 @@ function displayPokemons(){
         $checked = evaluateFavorite($row['pokemonID']);
         echo
             '<div class="container">
-            <p class="number">' . $row["number"] . '</p>
-            <p class="name"><a href="detail.php?id=' . $row["pokemonID"] . '">' . $row["name"] . '</a></p>
-            <div class="types"><p class="types">' . str_replace(",", '</p><p class="types">', $row["typeNames"]) . '</p></div>
-            <img src="' . $row["picture"] . '" alt="image du pokemon">
-                <div>
+                <img class="imagePokemon" src="' . $row["picture"] . '" alt="image du pokemon">
+                <p class="number">' . $row["number"] . '</p>
+                <p class="name"><a class="nameLink" href="detail.php?id=' . $row["pokemonID"] . '">' . $row["name"] . '</a></p>
+                <div class="types"><p class="types">' . str_replace(",", '</p> <p class="types">', $row["typeNames"])  .  '</p></div>
+                
+
+                <div class="heart">
                      <form action="favoritesManager.php" method="GET">
                      <input type="hidden" name="pokemonId" value="' . $row['pokemonID'] . '"/>
                      <input onChange="submit()" type="checkbox" id="heart' . $row['pokemonID'] . '" '.$checked.'/>
                      <label for="heart' . $row['pokemonID'] . '"></label>
                      </form>
-
                  </div>
-        </div>';
+            </div>';
     }
 
 }
