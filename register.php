@@ -1,12 +1,13 @@
 <?php
 require('./header.php');
+require('./validate-sanitize/sanitize.php');
 ?>
 <main>
     <form action="register.php" method="post">
         <h1>Register</h1>
         <div>
             <label for="email">Email*</label>
-            <input type="email" name="email" id="email">
+            <input type="text" name="email" id="email">
         </div>
         <div>
             <label for="password">Password*</label>
