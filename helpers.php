@@ -2,7 +2,8 @@
 
 require_once('connect.php');
 
-function checkLogin(){
+function checkLogin()
+{
     $isLogged = true;
     if (!isset($_SESSION['username'])) {
         $isLogged =  false;
@@ -10,11 +11,12 @@ function checkLogin(){
     return $isLogged;
 }
 
-function isFavorite($pokemonId, $userID){
+function isFavorite($pokemonId, $userID)
+{
     global $bdd;
     $query = "SELECT favoriteID FROM pokedex.favorites WHERE userID = '$userID' AND pokemonId='$pokemonId';";
     $res = $bdd->query($query);
-    return $res->rowCount()===1;
+    return $res->rowCount() === 1;
 }
 
 function getUserId($username): int

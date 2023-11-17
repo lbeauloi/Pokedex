@@ -6,8 +6,8 @@ require('./validate-sanitize/sanitize.php');
     <form action="register.php" method="post">
         <h1>Register</h1>
         <div>
-            <label for="email">Email*</label>
-            <input type="text" name="email" id="email">
+            <label for="username">Email*</label>
+            <input type="text" name="username" id="username">
         </div>
         <div>
             <label for="password">Password*</label>

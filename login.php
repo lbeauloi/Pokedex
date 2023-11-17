@@ -21,8 +21,8 @@ global $bdd;
         <form action="check_login.php" method="post">
             <h1>My Account</h1>
             <div>
-                <label for="email">Email*</label>
-                <input type="email" name="email" id="email">
+                <label for="username">Email*</label>
+                <input type="username" name="username" id="username">
             </div>
             <div>
                 <label for="password">Password*</label>
