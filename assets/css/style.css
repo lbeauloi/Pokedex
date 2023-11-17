@@ -83,3 +83,9 @@ input[type=checkbox]:checked + label:after {
   position: absolute;
   transition: 0.5s ease;
 }
+
+h1 {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */
