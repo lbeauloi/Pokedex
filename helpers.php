@@ -36,7 +36,7 @@ function getUserId($username): int
 function pokemonHtml($picture,$number,$id,$name,$types,$checked) : string{
 
     return'<div class="container">
-                ;<img class="imagePokemon" src="' . $picture . '" alt="image du pokemon">
+                <img class="imagePokemon" src="' . $picture . '" alt="image du pokemon">
                 <p class="number">' . $number . '</p>
                 <p class="name"><a class="nameLink" href="detail.php?id=' . $id . '">' . $name . '</a></p>
                 <div class="types"><p class="types">' . str_replace(",", '</p> <p class="types">', $types)  .  '</p></div>
