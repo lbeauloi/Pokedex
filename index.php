@@ -18,6 +18,13 @@ global $bdd;
     <?php
     require_once('header.php');
     ?>
+    <!-- search bar -->
+    <section class="searchBar">
+        <form action="" method="get">
+            <input type="text" name="search" placeholder="Search..">
+            <input type="submit" value="Search">
+        </form>
+    </section>
     <section class="titre"><h1>Liste des pokemons</h1></section>
     <main>
 
