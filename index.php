@@ -28,46 +28,44 @@ global $bdd;
     </section>
     <main>
 
-<?php
-// Utilisez une liste pour afficher les pokemons
-    // Sélectionnez le nom, le numéro et l'image de la table pokemon
-    // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
-    // Si la recherche est active, ne pas afficher tous les pokemons
+        <?php
+        // Utilisez une liste pour afficher les pokemons
+        // Sélectionnez le nom, le numéro et l'image de la table pokemon
+        // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
+        // Si la recherche est active, ne pas afficher tous les pokemons
 
-if(!isset($_GET['search'])){
-    displayPokemons();
-}
-
-else{
-        $search = $_GET['search'];
-        $query = "SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
+        if (!isset($_GET['search'])) {
+            displayPokemons();
+        } else {
+            $search = $_GET['search'];
+            $query = "SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
                   FROM pokemon
                   JOIN pokemontype ON pokemon.pokemonID = pokemontype.pokemonID
                   JOIN types ON pokemontype.typeID = types.typeID
                   WHERE pokemon.name LIKE '%$search%'
                   GROUP BY pokemon.pokemonID";
-        $result = $bdd->query($query);
-        $count = $result->rowCount();
-        if($count == 0){
-            echo "<h2>No result</h2>";
+            $result = $bdd->query($query);
+            $count = $result->rowCount();
+            if ($count == 0) {
+                echo "<h2>No result</h2>";
+            } else {
+
+                echo "<h2>$count result(s)</h2>";
+                echo "<main>";
+                foreach ($result as $row) {
+                    $checked = evaluateFavorite($row['pokemonID']);
+                    $pokemonHtml = pokemonHtml($row["picture"], $row["number"], $row["pokemonID"], $row["name"], $row["typeNames"], $checked);
+                    echo $pokemonHtml;
+                }
+            }
         }
-        else{
 
-            echo "<h2>$count result(s)</h2>";
-            echo "<main>";
-            foreach($result as $row){
-                $checked = evaluateFavorite($row['pokemonID']);
-                $pokemonHtml = pokemonHtml($row["picture"],$row["number"], $row["pokemonID"], $row["name"],$row["typeNames"],$checked);
-                echo $pokemonHtml;        }
-    }
-}
-
-    // Fermeture de la connexion à la base de données
-    $bdd = null;
-    ?>
-  </main>
-  </body>
-</html>
+        // Fermeture de la connexion à la base de données
+        $bdd = null;
+        ?>
+    </main>
+    </body>
+    </html>
 <?php
 
 function displayPokemons()
