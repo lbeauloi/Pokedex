@@ -117,5 +117,7 @@ ALTER TABLE `favorites` ADD CONSTRAINT `fk_favorites_userID` FOREIGN KEY(`userID
 ALTER TABLE `favorites` ADD CONSTRAINT `fk_favorites_pokemonID` FOREIGN KEY(`pokemonID`)
     REFERENCES `pokemon` (`pokemonID`);
 
+ALTER TABLE `users` ADD UNIQUE (`username`);
+
 CREATE INDEX `idx_pokemon_name`
     ON `pokemon` (`name`);
