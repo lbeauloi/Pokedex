@@ -37,30 +37,37 @@ if (isset($_GET['id'])) {
     $stmt->bindParam(':pokemonID', $pokemonID, PDO::PARAM_INT);
     $stmt->execute();
 
-    // Récupérez les détails du Pokémon spécifique
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    // ...
 
-    // Affichez les détails du Pokémon
-    
+// Récupérez les détails du Pokémon spécifique
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Affichez les détails du Pokémon
+echo '
+    <div class="containerDetail">
+        <div class="details">';
+        echo '<p class="nameDetail">' . $row["name"] . '</p>';
+        // Afficher les types avec les styles distincts pour chaque type
+        echo '<div class="typesDetail">';
+        $types = explode(',', $row['typeNames']); // Sépare les types par une virgule
+        foreach ($types as $type) {
+            echo '<p class="' . strtolower($type) . '">' . $type . '</p>';
+        }
+        echo '</div>';
+        echo '<p>HP: ' . $row["healthPoints"] . '</p>';
+        echo '<p>Attack Damages: ' . $row["attackDamages"] . '</p>';
+        echo '<p>Defense Points: ' . $row["defensePoints"] . '</p>';
+        echo '<p>Specific Defense: ' . $row["specificDefense"] . '</p>';
+        echo '<p>Specific Attack: ' . $row["specificAttack"] . '</p>';
+        echo '<p>Speed: ' . $row["speed"] . '</p>';
         echo '
-            <div class=containerDetail>
-                <div class="details">
-                    <p class="nameDetail">' . $row["name"] . '</p>
-                    <div class="typesDetail"><p class="typesDetail">' . str_replace(",", '</p><p class="typesDetail">', $row["typeNames"]) . '</p></div>
-                    <p>HP: ' . $row["healthPoints"] . '</p>
-                    <p>Attack Damages: ' . $row["attackDamages"] . '</p>
-                    <p>Defense Points: ' . $row["defensePoints"] . '</p>
-                    <p>Specific Defense: ' . $row["specificDefense"] . '</p>
-                    <p>Specific Attack: ' . $row["specificAttack"] . '</p>
-                    <p>Speed: ' . $row["speed"] . '</p>
-                </div>
-            
-                <div class="imagePhoto">
-                    <p class="numberDetail">' . $row["number"] . '</p>
-                    <img src="' . $row["picture"] . '" alt="image du pokemon">
-                </div>
-            </div>';
-   
+        </div>
+
+        <div class="imagePhoto">
+            <p class="numberDetail">' . $row["number"] . '</p>
+            <img src="' . $row["picture"] . '" alt="image du pokemon">
+        </div>
+    </div>';
 
 // Fermeture de la connexion à la base de données
 $bdd = null;

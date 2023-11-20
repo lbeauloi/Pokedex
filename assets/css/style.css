@@ -125,6 +125,7 @@ main {
   display: flex;
   justify-content: center;
   padding: 5px;
+  gap: 10px;
 }
 .container .types .normal {
   background-color: lightgrey;
@@ -143,7 +144,7 @@ main {
   font-weight: bold;
 }
 .container .types .poison {
-  background-color: rgb(146, 62, 146);
+  background-color: rgb(151, 109, 151);
   color: purple;
   padding: 10px;
   border-radius: 5px;
@@ -151,7 +152,7 @@ main {
   font-weight: bold;
 }
 .container .types .fire {
-  background-color: orangered;
+  background-color: rgb(255, 125, 78);
   color: red;
   padding: 10px;
   border-radius: 5px;
@@ -159,7 +160,7 @@ main {
   font-weight: bold;
 }
 .container .types .dragon {
-  background-color: rgb(146, 62, 146);
+  background-color: rgb(151, 109, 151);
   color: purple;
   padding: 10px;
   border-radius: 5px;
@@ -255,6 +256,75 @@ html {
   background-color: white;
   padding: 50px;
 }
+.containerDetail .typesDetail {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.containerDetail .typesDetail .normal {
+  background-color: lightgrey;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.containerDetail .typesDetail .grass {
+  background-color: lightgreen;
+  color: darkgreen;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.containerDetail .typesDetail .poison {
+  background-color: rgb(151, 109, 151);
+  color: purple;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.containerDetail .typesDetail .fire {
+  background-color: rgb(255, 125, 78);
+  color: red;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.containerDetail .typesDetail .dragon {
+  background-color: rgb(151, 109, 151);
+  color: purple;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.containerDetail .typesDetail .water {
+  background-color: lightblue;
+  color: blue;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.containerDetail .typesDetail .bug {
+  background-color: lightgreen;
+  color: darkgreen;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.containerDetail .typesDetail .flying {
+  background-color: lightgrey;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
 
 .imagePhoto {
   position: relative;
@@ -269,4 +339,5 @@ html {
   top: 50px;
   color: #E4E5EA;
   font-weight: bold;
+  left: -50px;
 }/*# sourceMappingURL=style.css.map */

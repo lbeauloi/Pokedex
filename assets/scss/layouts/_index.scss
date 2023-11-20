@@ -37,6 +37,7 @@ main{
         display: flex;
         justify-content: center;
         padding: 5px;
+        gap: 10px;
         .normal{
             background-color: lightgrey;
             color: black;
@@ -54,7 +55,7 @@ main{
             font-weight: bold;
         }
         .poison{
-            background-color: rgb(146, 62, 146);
+            background-color: rgb(151, 109, 151);
             color: purple;
             padding: 10px;
             border-radius: 5px;
@@ -62,7 +63,7 @@ main{
             font-weight: bold;
         }
         .fire{
-            background-color: orangered;
+            background-color: rgb(255, 125, 78);
             color: red;
             padding: 10px;
             border-radius: 5px;
@@ -70,7 +71,7 @@ main{
             font-weight: bold;
         }
         .dragon{
-            background-color: rgb(146, 62, 146);
+            background-color: rgb(151, 109, 151);
             color: purple;
             padding: 10px;
             border-radius: 5px;
