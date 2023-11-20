@@ -126,6 +126,70 @@ main {
   justify-content: center;
   padding: 5px;
 }
+.container .types .normal {
+  background-color: lightgrey;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.container .types .grass {
+  background-color: lightgreen;
+  color: darkgreen;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.container .types .poison {
+  background-color: rgb(146, 62, 146);
+  color: purple;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.container .types .fire {
+  background-color: orangered;
+  color: red;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.container .types .dragon {
+  background-color: rgb(146, 62, 146);
+  color: purple;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.container .types .water {
+  background-color: lightblue;
+  color: blue;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.container .types .bug {
+  background-color: lightgreen;
+  color: darkgreen;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.container .types .flying {
+  background-color: lightgrey;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
 .container .name {
   font-size: 25px;
   text-decoration: none;

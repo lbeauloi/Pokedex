@@ -37,6 +37,70 @@ main{
         display: flex;
         justify-content: center;
         padding: 5px;
+        .normal{
+            background-color: lightgrey;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .grass{
+            background-color: lightgreen;
+            color: darkgreen;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .poison{
+            background-color: rgb(146, 62, 146);
+            color: purple;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .fire{
+            background-color: orangered;
+            color: red;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .dragon{
+            background-color: rgb(146, 62, 146);
+            color: purple;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .water{
+            background-color: lightblue;
+            color: blue;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .bug{
+            background-color: lightgreen;
+            color: darkgreen;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .flying{
+            background-color: lightgrey;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
     }
     .name{
         font-size: 25px;
