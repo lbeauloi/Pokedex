@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 20 nov. 2023 à 11:23
+-- Généré le : lun. 20 nov. 2023 à 13:15
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `pokemon` (
   `picture` varchar(255) NOT NULL,
   PRIMARY KEY (`pokemonID`),
   KEY `idx_pokemon_name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `pokemon`
@@ -67,7 +67,13 @@ INSERT INTO `pokemon` (`pokemonID`, `name`, `number`, `healthPoints`, `attackDam
 (17, 'Pidgeotto', '#0017', 63, 60, 55, 50, 50, 71, './assets/img/pidgeotto.png'),
 (18, 'Pidgeot', '#0018', 83, 80, 75, 70, 70, 101, './assets/img/pidgeot.png'),
 (19, 'Rattata', '#0019', 30, 56, 35, 25, 35, 72, './assets/img/rattata.png'),
-(20, 'Raticate', '#0020', 55, 81, 60, 50, 70, 97, './assets/img/raticate.png');
+(20, 'Raticate', '#0020', 55, 81, 60, 50, 70, 97, './assets/img/raticate.png'),
+(21, 'Spearow', '#0021', 40, 60, 30, 31, 31, 70, './assets/img/spearow.png'),
+(22, 'Fearow', '#0022', 65, 90, 65, 61, 61, 100, './assets/img/fearow.png'),
+(23, 'Ekans', '#0023', 35, 60, 44, 40, 54, 55, './assets/img/ekans.png'),
+(24, 'Arbok', '#0024', 60, 95, 69, 65, 79, 80, './assets/img/arbok.png'),
+(25, 'Pikachu', '#0025', 35, 55, 40, 50, 50, 90, './assets/img/pikachu.png'),
+(26, 'Raichu', '#0026', 60, 90, 55, 90, 80, 110, './assets/img/raichu.png');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

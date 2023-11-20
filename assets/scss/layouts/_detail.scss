@@ -13,6 +13,7 @@ html{
         .nameDetail{
             font-weight: bold;
             font-size: 40px;
+            padding: 10px;
         }
     } 
     .typesDetail{
@@ -83,22 +84,30 @@ html{
             text-transform: capitalize;
             font-weight: bold;
         }
+        .electric{
+            background-color: rgb(254, 254, 122);
+            color: darkgoldenrod;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
     }
 }
 
 .imagePhoto{
     position: relative;
     img{
-        width: 300px;
+        width: 350px;
     }
     .numberDetail{
         position: absolute;
         font-size: 150px;
         z-index: -1;
-        top: 50px;
+        top: -6px;
         color: #d4d5d8;
         font-weight: bold;
-        left: -100px;
+        left: -79px;
 
     }
 }

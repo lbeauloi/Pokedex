@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 20 nov. 2023 à 11:02
+-- Généré le : lun. 20 nov. 2023 à 13:22
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `pokemontype` (
   PRIMARY KEY (`pokeTypeID`),
   KEY `fk_pokemonType_pokemonID` (`pokemonID`),
   KEY `fk_pokemonType_typeID` (`typeID`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `pokemontype`
@@ -72,7 +72,15 @@ INSERT INTO `pokemontype` (`pokeTypeID`, `pokemonID`, `typeID`) VALUES
 (28, 18, 1),
 (29, 18, 10),
 (30, 19, 1),
-(31, 20, 1);
+(31, 20, 1),
+(32, 21, 1),
+(33, 21, 10),
+(34, 22, 1),
+(35, 22, 10),
+(36, 23, 8),
+(37, 24, 8),
+(38, 25, 5),
+(39, 26, 5);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
