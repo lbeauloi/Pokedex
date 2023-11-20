@@ -1,7 +1,8 @@
 <?php
-
+//inclure fichier de connexion à la db
 require_once('connect.php');
 
+//fonction pour vérifier si l'utilisateur est connecté
 function checkLogin()
 {
     $isLogged = true;
@@ -11,17 +12,21 @@ function checkLogin()
     return $isLogged;
 }
 
+//fonction pour vérifier si un pokémon est marqué comme favori pour un utilisateur donné
 function isFavorite($pokemonId, $userID)
 {
     global $bdd;
+    //requête SQL pour rechercher le pokémon dnas les favoris du user
     $query = "SELECT favoriteID FROM pokedex.favorites WHERE userID = '$userID' AND pokemonId='$pokemonId';";
     $res = $bdd->query($query);
     return $res->rowCount() === 1;
 }
 
+//fonciton pour obtenir l'ID du user à partir du nom utilisateur
 function getUserId($username): int
 {
     global $bdd;
+    //requête SQL pour récupérer l'ID du user en fonction du nom d'utilisateur
     $query = "SELECT UserID FROM pokedex.users WHERE username = '$username'";
     $res = $bdd->query($query);
 
@@ -29,13 +34,15 @@ function getUserId($username): int
         $row = $res->fetch();
         return $row['UserID'];
     }
-
+    //générer une exception si le login est invalide
     return throw new Exception('Invalid login');
 }
 
-function pokemonHtml($picture,$number,$id,$name,$types,$checked) : string{
+//function pour générer le code HTML pour affciher les détails d'un pokémon
+function pokemonHtml($picture, $number, $id, $name, $types, $checked): string
+{
 
-    return'<div class="container">
+    return '<div class="container">
                 <img class="imagePokemon" src="' . $picture . '" alt="image du pokemon">
                 <p class="number">' . $number . '</p>
                 <p class="name"><a class="nameLink" href="detail.php?id=' . $id . '">' . $name . '</a></p>
@@ -52,7 +59,9 @@ function pokemonHtml($picture,$number,$id,$name,$types,$checked) : string{
         </div>';
 }
 
-function getPokemonQuery(){
+//fonction pour obtenir la requête SQL pour récupérer les infos sur les pokémoins
+function getPokemonQuery()
+{
 
     return 'SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
               FROM pokemon
@@ -61,17 +70,19 @@ function getPokemonQuery(){
               GROUP BY pokemon.pokemonID';
 }
 
-function evaluateFavorite($pokemonId):string{
-    if(!checkLogin())
+//focntion pour évaluer si un pokémon est maqrué comme favori pour le user connecté
+function evaluateFavorite($pokemonId): string
+{
+    if (!checkLogin())
         return "";
-    $userId=-1;
-    try{
+    $userId = -1;
+    try {
+        // Obtenir l'ID d'utilisateur en fonction du nom d'utilisateur de la session
         $userId = getUserId($_SESSION['username']);
-    }
-    catch(Exception $e){
+        $userId = getUserId($_SESSION['username']);
+    } catch (Exception $e) {
         $e->getMessage();
     }
-
-    return isFavorite($pokemonId,$userId)? "checked":"";
+    // Renvoyer "checked" si le Pokémon est favori pour l'utilisateur, sinon une chaîne vide
+    return isFavorite($pokemonId, $userId) ? "checked" : "";
 }
-
