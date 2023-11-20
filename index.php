@@ -54,7 +54,8 @@ global $bdd;
                 echo "<main>";
                 foreach ($result as $row) {
                     $checked = evaluateFavorite($row['pokemonID']);
-                    $pokemonHtml = pokemonHtml($row["picture"], $row["number"], $row["pokemonID"], $row["name"], $row["typeNames"], $checked);
+                    $types = explode(',', $row['typeNames']);
+                    $pokemonHtml = pokemonHtml($row["picture"], $row["number"], $row["pokemonID"], $row["name"], $types, $checked);
                     echo $pokemonHtml;
                 }
             }
