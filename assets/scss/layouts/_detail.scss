@@ -10,6 +10,10 @@ html{
     .details{
         background-color: white;
         padding: 50px;
+        .nameDetail{
+            font-weight: bold;
+            font-size: 40px;
+        }
     } 
     .typesDetail{
         display: flex;
@@ -92,9 +96,9 @@ html{
         font-size: 150px;
         z-index: -1;
         top: 50px;
-        color: #E4E5EA;
+        color: #d4d5d8;
         font-weight: bold;
-        left: -50px;
+        left: -100px;
 
     }
 }

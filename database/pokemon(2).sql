@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 16 nov. 2023 à 14:36
+-- Généré le : lun. 20 nov. 2023 à 11:23
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `pokemon` (
   `picture` varchar(255) NOT NULL,
   PRIMARY KEY (`pokemonID`),
   KEY `idx_pokemon_name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `pokemon`
@@ -59,7 +59,15 @@ INSERT INTO `pokemon` (`pokemonID`, `name`, `number`, `healthPoints`, `attackDam
 (9, 'Blastoise', '#0009', 79, 83, 100, 85, 105, 78, './assets/img/blastoise.png'),
 (10, 'Caterpie', '#0010', 45, 30, 35, 20, 20, 45, './assets/img/caterpie.png'),
 (11, 'Metapod', '#0011', 50, 20, 55, 25, 25, 30, './assets/img/metapod.png'),
-(12, 'Butterfree', '#0012', 60, 45, 50, 90, 80, 70, './assets/img/butterfree.png');
+(12, 'Butterfree', '#0012', 60, 45, 50, 90, 80, 70, './assets/img/butterfree.png'),
+(13, 'Weedle', '#0013', 40, 35, 30, 20, 20, 50, './assets/img/weedle.png'),
+(14, 'Kakuna', '#0014', 45, 25, 50, 25, 25, 35, './assets/img/kakuna.png'),
+(15, 'Beedrill', '#0015', 65, 90, 40, 45, 80, 75, './assets/img/beedrill.png'),
+(16, 'Pidgey', '#0016', 40, 45, 40, 35, 35, 56, './assets/img/pidgey.png'),
+(17, 'Pidgeotto', '#0017', 63, 60, 55, 50, 50, 71, './assets/img/pidgeotto.png'),
+(18, 'Pidgeot', '#0018', 83, 80, 75, 70, 70, 101, './assets/img/pidgeot.png'),
+(19, 'Rattata', '#0019', 30, 56, 35, 25, 35, 72, './assets/img/rattata.png'),
+(20, 'Raticate', '#0020', 55, 81, 60, 50, 70, 97, './assets/img/raticate.png');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

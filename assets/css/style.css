@@ -256,6 +256,10 @@ html {
   background-color: white;
   padding: 50px;
 }
+.containerDetail .details .nameDetail {
+  font-weight: bold;
+  font-size: 40px;
+}
 .containerDetail .typesDetail {
   display: flex;
   justify-content: center;
@@ -337,7 +341,7 @@ html {
   font-size: 150px;
   z-index: -1;
   top: 50px;
-  color: #E4E5EA;
+  color: #d4d5d8;
   font-weight: bold;
-  left: -50px;
+  left: -100px;
 }/*# sourceMappingURL=style.css.map */

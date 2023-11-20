@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 16 nov. 2023 à 12:54
+-- Généré le : lun. 20 nov. 2023 à 11:16
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `pokemonpreviousevolution` (
   PRIMARY KEY (`pokPreviousID`),
   KEY `fk_pokemonPreviousEvolution_pokemonID` (`pokemonID`),
   KEY `fk_pokemonPreviousEvolution_previousEvolutionID` (`previousEvolutionID`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `pokemonpreviousevolution`
@@ -54,7 +54,14 @@ INSERT INTO `pokemonpreviousevolution` (`pokPreviousID`, `pokemonID`, `previousE
 (9, 9, 8, 1),
 (10, 11, 10, 1),
 (11, 12, 10, 2),
-(12, 12, 11, 1);
+(12, 12, 11, 1),
+(14, 14, 13, 1),
+(15, 15, 13, 2),
+(16, 15, 14, 1),
+(17, 17, 16, 1),
+(18, 18, 16, 2),
+(19, 18, 17, 1),
+(20, 20, 19, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
