@@ -272,12 +272,13 @@ html {
 }
 .containerDetail .heart {
   position: absolute;
-  right: 583px;
+  right: 50px;
   top: 0px;
 }
 .containerDetail .details {
   background-color: white;
   padding: 50px;
+  position: relative;
 }
 .containerDetail .details .nameDetail {
   font-weight: bold;
@@ -378,7 +379,7 @@ html {
   left: -79px;
 }
 
-.evolutions .futureEvolutions {
+.evolutions {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
