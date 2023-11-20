@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('connect.php');
 require_once('helpers.php');
 ?>
@@ -57,7 +58,8 @@ function getDetails($pokemonID){
 }
 
 function displayDetails($row):string{
-
+    $id=$row['pokemonID'];
+    $checked = evaluateFavorite($row['pokemonID']);
     $health = getPercentage($row['healthPoints']);
     $damages = getPercentage($row['attackDamages']);
     $defense = getPercentage($row['defensePoints']);
@@ -66,6 +68,13 @@ function displayDetails($row):string{
     $speed = getPercentage($row['speed']);
     return '
             <div class=containerDetail>
+            <div class="heart">
+                     <form action="favoritesManager.php" method="GET">
+                     <input type="hidden" name="pokemonId" value="' . $id . '"/>
+                     <input onChange="submit()" type="checkbox" id="heart' . $id . '" ' . $checked . '/>
+                     <label for="heart' . $id . '"></label>
+                     </form>
+                 </div>
                 <div class="details">
                     <p class="nameDetail">' . $row["name"] . '</p>
                     <div class="typesDetail"><p class="typesDetail">' . str_replace(",", '</p><p class="typesDetail">', $row["typeNames"]) . '</p></div>
