@@ -1,0 +1,137 @@
+html{
+    background-color: #F3F4F6;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+.containerDetail{
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 80px;
+    position:relative;
+    .heart{
+        position: absolute;
+        right: 50px;
+        top: 0px;
+    }
+    .details{
+        background-color: white;
+        padding: 50px;
+        position: relative;
+        .nameDetail{
+            font-weight: bold;
+            font-size: 40px;
+            padding: 10px;
+        }
+    } 
+    .typesDetail{
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        .normal{
+            background-color: lightgrey;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .grass{
+            background-color: lightgreen;
+            color: darkgreen;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .poison{
+            background-color: rgb(151, 109, 151);
+            color: purple;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .fire{
+            background-color: rgb(255, 125, 78);
+            color: red;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .dragon{
+            background-color: rgb(151, 109, 151);
+            color: purple;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .water{
+            background-color: lightblue;
+            color: blue;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .bug{
+            background-color: lightgreen;
+            color: darkgreen;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .flying{
+            background-color: lightblue;
+            color: darkslategrey;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .electric{
+            background-color: rgb(254, 254, 122);
+            color: darkgoldenrod;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+    }
+}
+
+.imagePhoto{
+    position: relative;
+    img{
+        width: 350px;
+    }
+    .numberDetail{
+        position: absolute;
+        font-size: 150px;
+        z-index: -1;
+        top: -6px;
+        color: #d4d5d8;
+        font-weight: bold;
+        left: -79px;
+
+    }
+}
+.evolutions{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 25px;
+    .futureEvolutions, .prevEvolutions{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 25px;
+    }
+    img{
+        width: 100px;
+    }
+}
+
+

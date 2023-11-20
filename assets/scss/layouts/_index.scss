@@ -1,0 +1,133 @@
+html{
+    background-color: #F3F4F6;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container,.number,.name,.nameLink,.types,.imagePokemon,.heart{
+    background-color: white;
+}
+
+.titre{
+    font-size: 35px;
+    text-align: center;
+    padding: 5px;
+}
+
+
+main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.container{
+    width: 350px;
+    padding: 5px;
+    margin: 20px;
+    border-radius: 15px;
+    position: relative;
+    .imagePokemon{  
+        width: 250px;
+        padding: 5px;
+    }
+    .number{
+        padding: 5px;
+    }
+    .types{
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        gap: 10px;
+        .normal{
+            background-color: lightgrey;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .grass{
+            background-color: lightgreen;
+            color: darkgreen;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .poison{
+            background-color: rgb(151, 109, 151);
+            color: purple;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .fire{
+            background-color: rgb(255, 125, 78);
+            color: red;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .dragon{
+            background-color: rgb(151, 109, 151);
+            color: purple;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .water{
+            background-color: lightblue;
+            color: blue;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .bug{
+            background-color: lightgreen;
+            color: darkgreen;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .flying{
+            background-color: lightblue;
+            color: darkslategray;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+        .electric{
+            background-color: rgb(254, 254, 122);
+            color: darkgoldenrod;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+    }
+    .name{
+        font-size: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px;
+    }
+    .nameLink{
+        text-decoration: none;
+        color: black;
+        padding: 5px;
+    }
+
+    .heart{
+        position: absolute;
+        top: 5px;
+        right: 45px;
+    }
+
+
+}
