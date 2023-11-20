@@ -2,7 +2,7 @@
 
 require_once('connect.php');
 
-function checkLogin()
+function checkLogin(): bool
 {
     $isLogged = true;
     if (!isset($_SESSION['username'])) {
@@ -11,7 +11,7 @@ function checkLogin()
     return $isLogged;
 }
 
-function isFavorite($pokemonId, $userID)
+function isFavorite($pokemonId, $userID): bool
 {
     global $bdd;
     $query = "SELECT favoriteID FROM pokedex.favorites WHERE userID = '$userID' AND pokemonId='$pokemonId';";
@@ -19,6 +19,9 @@ function isFavorite($pokemonId, $userID)
     return $res->rowCount() === 1;
 }
 
+/**
+ * @throws Exception
+ */
 function getUserId($username): int
 {
     global $bdd;
@@ -30,7 +33,7 @@ function getUserId($username): int
         return $row['UserID'];
     }
 
-    return throw new Exception('Invalid login');
+    throw new Exception('Invalid login');
 }
 
 function pokemonHtml($picture,$number,$id,$name,$types,$checked) : string{
@@ -52,7 +55,7 @@ function pokemonHtml($picture,$number,$id,$name,$types,$checked) : string{
         </div>';
 }
 
-function getPokemonQuery(){
+function getPokemonQuery():string{
 
     return 'SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
               FROM pokemon
@@ -69,7 +72,7 @@ function evaluateFavorite($pokemonId):string{
         $userId = getUserId($_SESSION['username']);
     }
     catch(Exception $e){
-        $e->getMessage();
+        echo $e->getMessage();
     }
 
     return isFavorite($pokemonId,$userId)? "checked":"";
