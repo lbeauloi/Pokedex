@@ -54,7 +54,8 @@ function displayFavorites($userId): void
     foreach ($favorites as $fav) {
         // Pour chaque enregistrement, afficher une entrée de liste
         $checked = evaluateFavorite($fav['pokemonID']);
-        $pokemonHtml = pokemonHtml($fav["picture"], $fav["number"], $fav["pokemonID"], $fav["name"], $fav["typeNames"], $checked);
+        $types = explode(',', $fav['typeNames']);
+        $pokemonHtml = pokemonHtml($fav["picture"], $fav["number"], $fav["pokemonID"], $fav["name"], $types, $checked);
         // Afficher le HTML généré pour chaque Pokémon.
         echo $pokemonHtml;
     }
