@@ -6,7 +6,6 @@ global $bdd;
 //vérifier si la reqête http est bien de type post
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-
     //vérifier récupérer les données du form 
     $username = isset($_POST['username']) ? $_POST['username'] : "";
     $password = isset($_POST['password']) ? $_POST['password'] : "";
