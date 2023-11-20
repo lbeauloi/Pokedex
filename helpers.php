@@ -32,3 +32,46 @@ function getUserId($username): int
 
     return throw new Exception('Invalid login');
 }
+
+function pokemonHtml($picture,$number,$id,$name,$types,$checked) : string{
+
+    return'<div class="container">
+                ;<img class="imagePokemon" src="' . $picture . '" alt="image du pokemon">
+                <p class="number">' . $number . '</p>
+                <p class="name"><a class="nameLink" href="detail.php?id=' . $id . '">' . $name . '</a></p>
+                <div class="types"><p class="types">' . str_replace(",", '</p> <p class="types">', $types)  .  '</p></div>
+                
+
+                <div class="heart">
+                     <form action="favoritesManager.php" method="GET">
+                     <input type="hidden" name="pokemonId" value="' . $id . '"/>
+                     <input onChange="submit()" type="checkbox" id="heart' . $id . '" ' . $checked . '/>
+                     <label for="heart' . $id . '"></label>
+                     </form>
+                 </div>
+        </div>';
+}
+
+function getPokemonQuery(){
+
+    return 'SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
+              FROM pokemon
+              JOIN pokemontype ON pokemon.pokemonID = pokemontype.pokemonID
+              JOIN types ON pokemontype.typeID = types.typeID
+              GROUP BY pokemon.pokemonID';
+}
+
+function evaluateFavorite($pokemonId):string{
+    if(!checkLogin())
+        return "";
+    $userId=-1;
+    try{
+        $userId = getUserId($_SESSION['username']);
+    }
+    catch(Exception $e){
+        $e->getMessage();
+    }
+
+    return isFavorite($pokemonId,$userId)? "checked":"";
+}
+
