@@ -107,15 +107,17 @@ function displayDetails($row):string{
     $types = displayType(explode(',', $row['typeNames'])); // Sépare les types par une virgule
 
     return '
-            <div class=containerDetail>
-            <div class="heart">
-                     <form action="favoritesManager.php" method="GET">
-                     <input type="hidden" name="pokemonId" value="' . $id . '"/>
-                     <input onChange="submit()" type="checkbox" id="heart' . $id . '" ' . $checked . '/>
-                     <label for="heart' . $id . '"></label>
-                     </form>
-                 </div>
-                <div class="details">
+        <div class=containerDetail>
+            
+
+            <div class="details">
+                <div class="heart">
+                        <form action="favoritesManager.php" method="GET">
+                        <input type="hidden" name="pokemonId" value="' . $id . '"/>
+                        <input onChange="submit()" type="checkbox" id="heart' . $id . '" ' . $checked . '/>
+                        <label for="heart' . $id . '"></label>
+                        </form>
+                </div>
                     <p class="nameDetail">' . $row["name"] . '</p>
                     <div class="typesDetail"><p class="typesDetail">' . $types . '</p></div>
                     <div class="healthPoints">
@@ -149,18 +151,18 @@ function displayDetails($row):string{
                     </div>
                     </div>
                     <div class="speed">    
-                    <p>Speed : '.$row['speed'].' </p>
+                    <p>Speed : '.$row['speed'].' </p></div>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $speed . '%"></div>
                     </div>
-                    </div>                
+            </div>                
             
-                <div class="imagePhoto">
+            <div class="imagePhoto">
                     <p class="numberDetail">' . $row["number"] . '</p>
                     <img src="' . $row["picture"] . '" alt="image du pokemon">
-                </div>
-                </div>
-            </div>';
+            </div>
+            </div>
+        </div>';
 }
 ?>
 

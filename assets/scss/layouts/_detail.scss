@@ -7,6 +7,12 @@ html{
     display:flex;
     justify-content: space-evenly;
     margin-top: 80px;
+    position:relative;
+    .heart{
+        position: absolute;
+        right: 583px;
+        top: 0px;
+    }
     .details{
         background-color: white;
         padding: 50px;
@@ -112,13 +118,14 @@ html{
     }
 }
 .evolutions{
-    display: flex;
-    justify-content: flex-start;
-    gap: 25px;
-    .prevEvolutions, .futureEvolutions{
-        img{
-            width: 100px;
-        }
+    .futureEvolutions{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 25px;
+    }
+    img{
+        width: 100px;
     }
 }
 
