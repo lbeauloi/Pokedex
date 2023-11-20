@@ -1,28 +1,39 @@
-<?php
-require('./header.php');
-require('./validate-sanitize/sanitize.php');
-?>
-<main>
-    <form action="register.php" method="post">
-        <h1>Register</h1>
-        <div>
-            <label for="username">Email*</label>
-            <input type="text" name="username" id="username">
-        </div>
-        <div>
-            <label for="password">Password*</label>
-            <input type="password" name="password" id="password">
-        </div>
-        <div>
-            <label for="password2">Password Verification*</label>
-            <input type="password" name="password2" id="password2">
-        </div>
+<!DOCTYPE html>
+<html lang="en">
 
-        <button type="submit">New account</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <title>SignUp</title>
+</head>
 
-    </form>
-</main>
-<footer>Already a member? <a href="./login.php">Login here</a></footer>
+<body>
+    <?php
+    require('./header.php');
+    require('./validate-sanitize/sanitize.php');
+    ?>
+    <main>
+        <form action="register.php" method="post">
+            <h1>Register</h1>
+            <div>
+                <label for="username">Email*</label>
+                <input type="text" name="username" id="username"><span class="error"><?php display_error('username') ?></span>
+            </div>
+            <div>
+                <label for="password">Password*</label>
+                <input type="password" name="password" id="password"><span class="error"><?php display_error('password') ?></span>
+            </div>
+            <div>
+                <label for="password2">Password Verification*</label>
+                <input type="password" name="password2" id="password2"><span class="error"><?php display_error('password2') ?></span>
+            </div>
+
+            <button type="submit">New account</button>
+
+        </form>
+    </main>
+    <footer>Already a member? <a href="./login.php">Login here</a></footer>
 </body>
 
 </html>

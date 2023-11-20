@@ -50,7 +50,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $password = $_POST['password'];
 
 
-    //préparer la requête sql pour récupérer un utilisateur avce le nom fourni
+    //préparer la requête sql pour récupérer un utilisateur avec le nom fourni
     $req = $bdd->prepare('SELECT * FROM users WHERE username = :username');
     //exécuter la requête en fournissant la valeur du paramètre
     $req->execute(array('username' => $username));
@@ -65,8 +65,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         //arreter l'exécution du script
         exit();
     } else {
-        //si pas, rediriger vers la page login
-        header('Location: login.php');
-        echo '<script>alert("Invalid username or password")</script>';
+        echo '<script type="text/javascript">';
+        echo 'alert("Review your answer");';
+        echo 'window.location.href = "login.php";';
+        echo '</script>';
     }
 }

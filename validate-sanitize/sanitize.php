@@ -6,13 +6,13 @@ global $bdd;
 //vérifier si la reqête http est bien de type post
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+
     //vérifier récupérer les données du form 
     $username = isset($_POST['username']) ? $_POST['username'] : "";
     $password = isset($_POST['password']) ? $_POST['password'] : "";
-    $confirmpassword = isset($_POST['password2']) ? $_POST['confirmpassword'] : "";
-
+    $confirmpassword = isset($_POST['password2']) ? $_POST['password2'] : "";
     //appeler fonction get_error et stocker le tableau dans la variable
-    $errors = get_error($username, $password, $confirmpassword);
+    $errors = get_error();
 
     //si aucune erreur de validation -> fonction has_error return false
     if (has_error($errors) == false) {   // la meme chose que si j'écirs if (!has_errors) == false)
@@ -34,8 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-function get_error($username, $password, $confirmpassword)
+function get_error()
 {
+    //vérifier récupérer les données du form 
+    $username = isset($_POST['username']) ? $_POST['username'] : "";
+    $password = isset($_POST['password']) ? $_POST['password'] : "";
+    $confirmpassword = isset($_POST['password2']) ? $_POST['password2'] : "";
     $passwordlen = strlen($password);
     $min = 7;
     //validation des champs du form
@@ -66,7 +70,16 @@ function has_error($errors)
 }
 
 
-//a finir pour display errors
-function display_error($proprety)
+//function pour display erros
+function display_error($property)
 {
+    //récupérer le tableau d'erreurs et le sotcker dans une variable
+    $arrayErrors = get_error();
+    //vérifier si la clé du tablleau existe avec la méthode array_key_exists qui entre en paramètre le spropriété et le tableau
+    if (array_key_exists($property, $arrayErrors)) {
+        //aller chercher les données du tableau à display
+        $userError = $arrayErrors[$property];
+        //l'afficher
+        echo $userError;
+    }
 }
