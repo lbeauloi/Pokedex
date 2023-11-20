@@ -29,7 +29,7 @@
                 <input type="password" name="password2" id="password2"><span class="error"><?php display_error('password2') ?></span>
             </div>
 
-            <button type="submit">New account</button>
+            <button type="submit" name="submitBtn">New account</button>
 
         </form>
     </main>

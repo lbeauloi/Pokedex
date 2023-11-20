@@ -4,12 +4,12 @@ global $bdd;
 
 
 //vérifier si la reqête http est bien de type post
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['password2'])) {
 
     //vérifier récupérer les données du form 
-    $username = isset($_POST['username']) ? $_POST['username'] : "";
-    $password = isset($_POST['password']) ? $_POST['password'] : "";
-    $confirmpassword = isset($_POST['password2']) ? $_POST['password2'] : "";
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $confirmpassword =  $_POST['password2'];
     //appeler fonction get_error et stocker le tableau dans la variable
     $errors = get_error();
 
@@ -35,23 +35,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function get_error()
 {
-    //vérifier récupérer les données du form 
-    $username = isset($_POST['username']) ? $_POST['username'] : "";
-    $password = isset($_POST['password']) ? $_POST['password'] : "";
-    $confirmpassword = isset($_POST['password2']) ? $_POST['password2'] : "";
-    $passwordlen = strlen($password);
-    $min = 7;
-    //validation des champs du form
-    $usernameErr = empty($username) ? "* Email is required" : (!filter_var($_POST['username'], FILTER_VALIDATE_EMAIL) ? "*Invalid email" : "");
-    $passwordErr =  empty($password) ? "* Password is required" : ($passwordlen < $min ? "*Password should have min 7 characters" : "");
-    $passwordConfirmErr = empty($confirmpassword) ? "* Password is required" : ($password != $confirmpassword ? "*password doesn't match" : "");
-    //si erreurs de validation, retounrer un tableau d'erreurs 
-    return array(
-        "username" => $usernameErr,
-        "password" => $passwordErr,
-        "password2" => $passwordConfirmErr
+    if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['password2'])) {
 
-    );
+        //vérifier récupérer les données du form 
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $confirmpassword =  $_POST['password2'];
+        $passwordlen = strlen($password);
+        $min = 7;
+        //validation des champs du form
+        $usernameErr = empty($username) ? "* Email is required" : (!filter_var($_POST['username'], FILTER_VALIDATE_EMAIL) ? "*Invalid email" : "");
+        $passwordErr =  empty($password) ? "* Password is required" : ($passwordlen < $min ? "*Password should have min 7 characters" : "");
+        $passwordConfirmErr = empty($confirmpassword) ? "* Password is required" : ($password != $confirmpassword ? "*password doesn't match" : "");
+
+        //si erreurs de validation, retounrer un tableau d'erreurs 
+        return array(
+            "username" => $usernameErr,
+            "password" => $passwordErr,
+            "password2" => $passwordConfirmErr
+
+        );
+    }
+    return array();
 }
 
 
@@ -63,9 +68,9 @@ function has_error($errors)
         if (!empty($error)) {
             return true;
         }
-        //si non return false
-        return false;
     }
+    //si aucune erreur trouvée, return false
+    return false;
 }
 
 
