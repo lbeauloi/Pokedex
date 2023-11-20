@@ -53,37 +53,37 @@ if (isset($_GET['id'])) {
                     <p class="nameDetail">' . $row["name"] . '</p>
                     <div class="typesDetail"><p class="typesDetail">' . str_replace(",", '</p><p class="typesDetail">', $row["typeNames"]) . '</p></div>
                     <div class="healthPoints">
-                    <p>HP : '.$health.'% </p>
+                    <p>HP : '.$row['healthPoints'].' </p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $health . '%"></div>
                     </div>
                     </div>
                     <div class="damages">
-                    <p>Attack Damages : '.$damages.'%</p>
+                    <p>Attack Damages : '.$row['attackDamages'].'</p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $damages . '%"></div>
                     </div>
                     </div>   
                     <div class="defense">
-                    <p>Defense Points : '.$defense.'%</p>
+                    <p>Defense Points : '.$row['defensePoints'].'</p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $defense . '%"></div>
                     </div>
                     </div>  
                     <div class="SpecificDefense">                  
-                    <p>Specific Defense : '.$specDefense.'% </p>
+                    <p>Specific Defense : '.$row['specificDefense'].' </p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $specDefense . '%"></div>
                     </div>
                     </div> 
                     <div class="SpecificAttack">    
-                    <p>Specific Attack : '.$specAttack.'% </p>
+                    <p>Specific Attack : '.$row['specificAttack'].' </p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $specAttack . '%"></div>
                     </div>
                     </div>
                     <div class="speed">    
-                    <p>Speed : '.$speed.'% </p>
+                    <p>Speed : '.$row['speed'].' </p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $speed . '%"></div>
                     </div>
