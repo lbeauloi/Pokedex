@@ -185,7 +185,7 @@ main {
 }
 .container .types .flying {
   background-color: lightblue;
-  color: black;
+  color: darkslategray;
   padding: 10px;
   border-radius: 5px;
   text-transform: capitalize;
@@ -332,7 +332,7 @@ html {
 }
 .containerDetail .typesDetail .flying {
   background-color: lightblue;
-  color: black;
+  color: darkslategrey;
   padding: 10px;
   border-radius: 5px;
   text-transform: capitalize;
@@ -361,4 +361,13 @@ html {
   color: #d4d5d8;
   font-weight: bold;
   left: -79px;
+}
+
+.evolutions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+}
+.evolutions .prevEvolutions img, .evolutions .futureEvolutions img {
+  width: 100px;
 }/*# sourceMappingURL=style.css.map */

@@ -78,7 +78,7 @@ html{
         }
         .flying{
             background-color: lightblue;
-            color: black;
+            color: darkslategrey;
             padding: 10px;
             border-radius: 5px;
             text-transform: capitalize;
@@ -111,4 +111,15 @@ html{
 
     }
 }
+.evolutions{
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+    .prevEvolutions, .futureEvolutions{
+        img{
+            width: 100px;
+        }
+    }
+}
+
 
