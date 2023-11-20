@@ -21,59 +21,40 @@ $username = $_SESSION['username'];
 $pokemonId = $_GET['pokemonId'] ?? -1;
 
 try {
-    //récupérer l'ID de l'utilisateur en utilisant le nom d'utilisateur de la session
     $userID = getUserId($username);
-    $resFavorite = isFavorite($pokemonId, $userID) ? removeFavorite($userID, $pokemonId) : addFavorite($userID, $pokemonId);
-    //if ok, redirect to loing page
+
+    if (isFavorite($pokemonId, $userID)) {
+        removeFavorite($userID, $pokemonId);
+    } else {
+        addFavorite($userID, $pokemonId);
+    }
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 } catch (Exception $e) {
-    //Capturer les éventuelles exceptions et récupérer le message d'erreur.
-    $resFavorite = $e->getMessage();
+    echo '<script type="text/javascript"> alert("something went wrong, please try again"); 
+    window.location.href = "' . $_SERVER['HTTP_REFERER'] . '";</script>';
+    exit();
 }
 
-//afficher le résultat du traitement
-echo $resFavorite;
-//afficher un bouton de retour à la page d'accueil
-echo '<button><a href="index.php">Home</a></button>';
 
-
-//Fonction pour ajouter un Pokémon aux favoris de l'utilisateur
 function addFavorite($userID, $pokemonId): string
 {
     global $bdd;
-    //Initialiser un tableau pour stocker les données du Pokémon
-    $pokemon = array();
-    try {
-        //récupérer les infos du pokémon par son ID
-        $pokemon = getPokemonById($pokemonId);
-        $insert = "INSERT INTO pokedex.favorites (pokemonID,userID) VALUES($pokemonId,$userID)";
-        //exécuter la requête d'insertion dans le tableau des favoris
-        $res = $bdd->exec($insert);
-    } catch (Exception $e) {
-        //capturer les exceptions et récupérer le message d'erreur
-        $res = $e->getMessage();
-    }
 
-    return $res === 1 ? '<p> Pokemon ' . $pokemon['name'] . ' is correctly added to your favorites.</p>' : (gettype($res) === 'string' ? $res : '<p> Exception has occurred, ' . $pokemon['name'] . ' not added to your favorites.</p>');
+    $insert = "INSERT INTO pokedex.favorites (pokemonID,userID) VALUES($pokemonId,$userID)";
+    return $bdd->exec($insert);
 }
 
-// Fonction pour supprimer un Pokémon des favoris de l'utilisateur
 function removeFavorite($userID, $pokemonId): string
 {
     global $bdd;
-    try {
-        //récupérer les infos du pokémon par son ID
-        $pokemon = getPokemonById($pokemonId);
-        $delete = "DELETE FROM pokedex.favorites WHERE userID = $userID AND pokemonId=$pokemonId;";
-        //exécuter la requête de suppression de la table des favoris
-        $res = $bdd->exec($delete);
-    } catch (Exception $e) {
-        $res = $e->getMessage();
-    }
 
-    return ($res === 1) ? '<p> Pokemon ' . $pokemon['name'] . ' is correctly removed from your favorites.</p>' : (typeof($res) === 'string' ? $res : '<p> Exception has occurred, ' . $pokemon['name'] . ' not removed from your favorites.</p>');
+    $delete = "DELETE FROM pokedex.favorites WHERE userID = $userID AND pokemonId=$pokemonId;";
+    return $bdd->exec($delete);
 }
 
-//fonction pour obtenir les info d'un pokémon par son ID
+/**
+ * @throws Exception
+ */
 function getPokemonById($pokemonId): array
 {
     global $bdd;
@@ -89,6 +70,5 @@ function getPokemonById($pokemonId): array
             "number" => $row['number']
         );
     }
-    //lancer une exception si l'ID du pokémon est invalide
-    return throw new Exception('Invalid pokemonId');
+    throw new Exception('Invalid pokemonId');
 }

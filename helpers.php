@@ -2,8 +2,7 @@
 //inclure fichier de connexion à la db
 require_once('connect.php');
 
-//fonction pour vérifier si l'utilisateur est connecté
-function checkLogin()
+function checkLogin(): bool
 {
     $isLogged = true;
     if (!isset($_SESSION['username'])) {
@@ -12,8 +11,7 @@ function checkLogin()
     return $isLogged;
 }
 
-//fonction pour vérifier si un pokémon est marqué comme favori pour un utilisateur donné
-function isFavorite($pokemonId, $userID)
+function isFavorite($pokemonId, $userID): bool
 {
     global $bdd;
     //requête SQL pour rechercher le pokémon dnas les favoris du user
@@ -22,7 +20,9 @@ function isFavorite($pokemonId, $userID)
     return $res->rowCount() === 1;
 }
 
-//fonciton pour obtenir l'ID du user à partir du nom utilisateur
+/**
+ * @throws Exception
+ */
 function getUserId($username): int
 {
     global $bdd;
@@ -34,8 +34,8 @@ function getUserId($username): int
         $row = $res->fetch();
         return $row['UserID'];
     }
-    //générer une exception si le login est invalide
-    return throw new Exception('Invalid login');
+
+    throw new Exception('Invalid login');
 }
 
 //function pour générer le code HTML pour affciher les détails d'un pokémon
@@ -59,8 +59,7 @@ function pokemonHtml($picture, $number, $id, $name, $types, $checked): string
         </div>';
 }
 
-//fonction pour obtenir la requête SQL pour récupérer les infos sur les pokémoins
-function getPokemonQuery()
+function getPokemonQuery(): string
 {
 
     return 'SELECT pokemon.pokemonID ,pokemon.name, pokemon.number, pokemon.picture, GROUP_CONCAT(types.name) AS typeNames
@@ -81,7 +80,7 @@ function evaluateFavorite($pokemonId): string
         $userId = getUserId($_SESSION['username']);
         $userId = getUserId($_SESSION['username']);
     } catch (Exception $e) {
-        $e->getMessage();
+        echo $e->getMessage();
     }
     // Renvoyer "checked" si le Pokémon est favori pour l'utilisateur, sinon une chaîne vide
     return isFavorite($pokemonId, $userId) ? "checked" : "";
