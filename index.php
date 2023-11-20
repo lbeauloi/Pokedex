@@ -1,7 +1,5 @@
 <?php
 session_start();
-//For test purpose
-//$_SESSION['username']="user1";
 require_once('connect.php');
 require_once('helpers.php');
 global $bdd;
@@ -24,10 +22,14 @@ global $bdd;
     <main>
 
 <?php
-displayPokemons();
 // Utilisez une liste pour afficher les pokemons
     // Sélectionnez le nom, le numéro et l'image de la table pokemon
     // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
+    // Si la recherche est active, ne pas afficher tous les pokemons
+
+if(!isset($_GET['search'])){
+    displayPokemons();
+}
 
     // Fermeture de la connexion à la base de données
     $bdd = null;
@@ -42,7 +44,6 @@ function displayPokemons()
     // Utilisez une liste pour afficher les pokemons
     // Sélectionnez le nom, le numéro et l'image de la table pokemon
     // Utilisez une jointure pour obtenir les types associés à chaque Pokémon
-
     global $bdd;
     $query = getPokemonQuery();
 
