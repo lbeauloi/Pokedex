@@ -385,6 +385,12 @@ html {
   justify-content: center;
   gap: 25px;
 }
+.evolutions .futureEvolutions, .evolutions .prevEvolutions {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 25px;
+}
 .evolutions img {
   width: 100px;
 }/*# sourceMappingURL=style.css.map */

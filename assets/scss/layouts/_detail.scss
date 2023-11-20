@@ -123,7 +123,12 @@ html{
     flex-wrap: nowrap;
     justify-content: center;
     gap: 25px;
-    
+    .futureEvolutions, .prevEvolutions{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 25px;
+    }
     img{
         width: 100px;
     }
