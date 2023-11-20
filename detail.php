@@ -53,37 +53,37 @@ if (isset($_GET['id'])) {
                     <p class="nameDetail">' . $row["name"] . '</p>
                     <div class="typesDetail"><p class="typesDetail">' . str_replace(",", '</p><p class="typesDetail">', $row["typeNames"]) . '</p></div>
                     <div class="healthPoints">
-                    <p>HP : </p>
+                    <p>HP : '.$health.'% </p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $health . '%"></div>
                     </div>
                     </div>
                     <div class="damages">
-                    <p>Attack Damages : </p>
+                    <p>Attack Damages : '.$damages.'%</p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $damages . '%"></div>
                     </div>
                     </div>   
                     <div class="defense">
-                    <p>Defense Points : </p>
+                    <p>Defense Points : '.$defense.'%</p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $defense . '%"></div>
                     </div>
                     </div>  
                     <div class="SpecificDefense">                  
-                    <p>Specific Defense : </p>
+                    <p>Specific Defense : '.$specDefense.'% </p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $specDefense . '%"></div>
                     </div>
                     </div> 
                     <div class="SpecificAttack">    
-                    <p>Specific Attack : </p>
+                    <p>Specific Attack : '.$specAttack.'% </p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $specAttack . '%"></div>
                     </div>
                     </div>
                     <div class="speed">    
-                    <p>Speed : </p>
+                    <p>Speed : '.$speed.'% </p>
                     <div class="BarBase">
                       <div class="Progression" style="height:24px;width:' . $speed . '%"></div>
                     </div>
