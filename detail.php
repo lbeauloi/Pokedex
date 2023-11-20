@@ -23,6 +23,22 @@ if (isset($_GET['id'])) {
     // Utilisez la fonction htmlspecialchars pour éviter les attaques par injection SQL
     $pokemonID = htmlspecialchars($_GET['id']);
 
+    // Affichez les détails du Pokémon
+    echo displayDetails(getDetails($pokemonID));
+
+   
+
+// Fermeture de la connexion à la base de données
+$bdd = null;
+}
+
+function getPercentage($value):int{
+    return ($value/200)*100;
+}
+
+function getDetails($pokemonID){
+    global $bdd;
+
     // Sélectionnez le nom, le numéro et l'image de la table pokemon pour le Pokémon spécifique
     // Utilisez une jointure pour obtenir les types associés à ce Pokémon
     $query = "SELECT pokemon.*, GROUP_CONCAT(types.name) AS typeNames
@@ -37,17 +53,18 @@ if (isset($_GET['id'])) {
     $stmt->bindParam(':pokemonID', $pokemonID, PDO::PARAM_INT);
     $stmt->execute();
 
-    // Récupérez les détails du Pokémon spécifique
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 
-    // Affichez les détails du Pokémon
+function displayDetails($row):string{
+
     $health = getPercentage($row['healthPoints']);
     $damages = getPercentage($row['attackDamages']);
     $defense = getPercentage($row['defensePoints']);
     $specAttack = getPercentage($row['specificAttack']);
     $specDefense = getPercentage($row['specificDefense']);
     $speed = getPercentage($row['speed']);
-        echo '
+    return '
             <div class=containerDetail>
                 <div class="details">
                     <p class="nameDetail">' . $row["name"] . '</p>
@@ -95,14 +112,6 @@ if (isset($_GET['id'])) {
                 </div>
                 </div>
             </div>';
-   
-
-// Fermeture de la connexion à la base de données
-$bdd = null;
-}
-
-function getPercentage($value):int{
-    return ($value/200)*100;
 }
 ?>
 
