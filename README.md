@@ -12,6 +12,9 @@ Develop a Pokedex application using PHP procedural programming. The application 
 - Dynamic Web Pages: Understand how to create dynamic web pages that display a list of Pokemon and their details based on user interactions.
 
 ## Screenshots
+[](./assets/img/card.png)
+[](./assets/img/login.png)
+[](./assets/img/show.png)
 
 ## Badges
 
