@@ -10,6 +10,9 @@ Develop a Pokedex application using PHP procedural programming. The application 
 - Database Integration: Learn to interact with a database to store and retrieve user information, favorite Pokemon, and Pokemon details.
 - User Authentication: Implement a secure login and registration system to allow users to save their favorite Pokemon.
 - Dynamic Web Pages: Understand how to create dynamic web pages that display a list of Pokemon and their details based on user interactions.
+
+## Screenshots
+
 ## Badges
 
 
